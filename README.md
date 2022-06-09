@@ -41,3 +41,33 @@ Declare permissions in manifest file:
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.CAMERA" />
 ```
+
+Request single runtime permission at a time:
+
+
+```kotlin
+Permissions.check(
+        this@MainActivityKotlin,
+        arrayOf(
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        ),
+        null,
+        null,
+        object : PermissionHandler() {
+            override fun onGranted() {
+                // do your task.
+                Toast.makeText(this@MainActivityKotlin, "Permission granted!", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onDenied(
+                context: Context?,
+                deniedPermissions: java.util.ArrayList<String>?
+                ) {
+                    super.onDenied(context, deniedPermissions)
+                    // do your task.
+                    Toast.makeText(this@MainActivityKotlin, "Permission denied!", Toast.LENGTH_SHORT).show()
+                }
+        })
+```
