@@ -1,2 +1,2 @@
-com.shashi.permissionmaster
+PermissionMaster
 ===========
