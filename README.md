@@ -72,7 +72,7 @@ Permissions.check(
         })
 ```
 
-Request permission in Kotlin:
+Request permission in Java:
 
 
 ```java
