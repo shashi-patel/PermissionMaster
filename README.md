@@ -72,6 +72,8 @@ Permissions.check(
         })
 ```
 
+Request permission in Kotlin:
+
 
 ```java
 Permissions.check(MainActivityJava.this, 
